@@ -25,7 +25,7 @@
 
 | Column                  | Type       | Options                        |
 | ----------------------- | ---------- | ------------------------------ |
-| user_id                 | references | null: false, foreign_key: true |
+| user                    | references | null: false, foreign_key: true |
 | name                    | string     | null: false                    |
 | information             | text       | null: false                    |
 | category_id             | integer    | null: false                    |
@@ -49,23 +49,23 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :order
-- has_one :addresses
+- has_one :address
 
 
 ## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| order_id      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
