@@ -1,7 +1,14 @@
-.error-alert {
+/* .error-alert {
   display: flex;
   justify-content: center;
   margin-bottom: 5vh;
+} */
+
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 5vh;
+  width: 80%;
 }
 
 .error-message {
