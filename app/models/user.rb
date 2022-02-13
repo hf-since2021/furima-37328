@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "can consist of only half-width characters and must contain at least 1 letter and 1 numeric character" }
+  validates :password,
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i,
+                      message: 'can consist of only half-width characters and must contain at least 1 letter and 1 numeric character' }
 
   with_options presence: true do
     validates :nickname
