@@ -60,17 +60,17 @@ RSpec.describe Item, type: :model do
       it '価格は¥300未満だと登録できない' do
         @item.price = Faker::Number.between(from: 0, to: 300 - 1)
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
+        expect(@item.errors.full_messages).to include 'Price must be greater than or equal to 300'
       end
       it '価格は¥10,000,00以上だと登録できない' do
-        @item.price = 9999999 + 1
+        @item.price = 9_999_999 + 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+        expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
       it '価格は半角数値以外だと登録できない' do
-        @item.price = @item.price.to_s.tr('0-9','０-９')
+        @item.price = @item.price.to_s.tr('0-9', '０-９')
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
     end
   end
